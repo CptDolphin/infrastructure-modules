@@ -1,5 +1,7 @@
+# dev/vpc/main.tf
+
 terraform {
-  # Intentionally empty. Will be filled by Terragrunt.
+  ## Intentionally empty. Will be filled by Terragrunt.
   backend "gcs" {}
 }
 
@@ -48,3 +50,4 @@ resource "google_compute_address" "project-nat-ips" {
   project = var.project_id
   region  = var.region
 }
+

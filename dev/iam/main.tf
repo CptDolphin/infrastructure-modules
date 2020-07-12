@@ -1,3 +1,5 @@
+# /dev/iam/main.tf
+
 terraform {
   # Intentionally empty. Will be filled by Terragrunt.
   backend "gcs" {}
@@ -34,3 +36,4 @@ resource "google_project_iam_binding" "predefined_role_members" {
   role     = "roles/${each.key}"
   members  = concat(each.value["users"], each.value["sa"])
 }
+
