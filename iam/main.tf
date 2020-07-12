@@ -1,4 +1,4 @@
-# /dev/iam/main.tf
+# iam/main.tf
 
 terraform {
   # Intentionally empty. Will be filled by Terragrunt.

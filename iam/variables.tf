@@ -1,11 +1,30 @@
-# dev/iam/variables.tf
+# iam/variables.tf
 
-variable "service_accounts" {}
-variable "project_name" {}
-variable "custom_roles" {}
-variable "predefined_roles" {}
+variable "service_accounts" {
+  type = string
+}
 
-variable "region" {}
-variable "zones" {}
-variable "credentials" {}
-variable "project_id" {}
+variable "project_name" {
+  type = string
+}
+
+variable "custom_roles" {
+  type = string
+}
+
+variable "predefined_roles" {
+  type = string
+}
+
+variable "region" {
+  type = string
+}
+
+variable "zones" {
+  type = list
+}
+
+variable "project_id" {
+  type = string
+}
+

@@ -13,6 +13,7 @@ resource "google_compute_network" "project-network" {
 
 resource "google_compute_subnetwork" "project-subnet" {
   name                     = var.cluster_name
+  region                   = var.region
   ip_cidr_range            = var.subnet_cidr
   private_ip_google_access = true
   network                  = google_compute_network.project-network.id
