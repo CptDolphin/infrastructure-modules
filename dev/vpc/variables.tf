@@ -10,5 +10,4 @@ variable "network_tags" {}
 variable "cloud_nat_ips" {}
 variable "project_id" {}
 variable "region" {}
-#
 
