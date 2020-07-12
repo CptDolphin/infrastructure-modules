@@ -1,7 +1,19 @@
 # dev/iam/outputs.tf
 
-output "sa" {
-  value = google_service_account.sa[*].id
+#output "all_create_service_accounts" {
+#  value = google_service_account.sa[*].name
+#}
+
+output "creds" {
+  value = var.credentials
+}
+
+output "project_name" {
+  value = var.project_name
+}
+
+output "region" {
+  value = var.region
 }
 
 #output "custom-roles" {

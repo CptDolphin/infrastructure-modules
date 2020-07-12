@@ -41,7 +41,7 @@ resource "google_compute_firewall" "allow-db" {
     ports    = var.firewall_ports
   }
   #  source_ranges = [concat(var.subnet_cidr, var.pod_range)]
-  target_tags = ["network-tag-name"]
+  target_tags = var.network_tags
 }
 
 resource "google_compute_address" "project-nat-ips" {
