@@ -1,4 +1,4 @@
-# dev/vpc/main.tf
+# vpc/main.tf
 
 terraform {
   ## Intentionally empty. Will be filled by Terragrunt.
@@ -12,10 +12,11 @@ resource "google_compute_network" "project-network" {
 }
 
 resource "google_compute_subnetwork" "project-subnet" {
-  name                     = var.cluster_name
+  for_each                 = jsondecode(var.subnet_cidr)
+  name                     = each.key
   region                   = var.region
-  ip_cidr_range            = var.subnet_cidr
-  private_ip_google_access = true
+  ip_cidr_range            = each.value["range"]
+  private_ip_google_access = each.value["private_ip_google_access"]
   network                  = google_compute_network.project-network.id
 }
 

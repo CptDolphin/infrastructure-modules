@@ -13,7 +13,7 @@ output "service_accounts" {
 }
 
 output "custom-roles" {
-  value = [for role in google_project_iam_custom_role.custom-roles : role.name]
+  value = [for role in google_project_iam_custom_role.custom-roles : role.members]]
 }
 
 output "custom_role_members" {

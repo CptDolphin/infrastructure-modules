@@ -1,21 +1,25 @@
-# dev/vpc/outputs.tf
+# vpc/outputs.tf
 
-output "vpc_name" {
-  value = google_compute_network.project-network.name
-}
-##output "subnet_cidr" {
-##  value = module.subnet_cidr[*].id
-##}
-##output "pod_range" {
-##  value = module.pod_range[*].id
-##}
-##output "service_range" {
-##  value = module.service_range[*].id
-##}
-##output "cloud_nat_ips" {
-##  value = module.cloud_nat_ips[*].id
-##}
-##output "firewall_ports" {
-##  value = module.firewall_ports[*].id
-##}
+  output "vpc_name" {
+~   value = google_compute_network.project-network.name
+_ }
+
++ output "subnets_for" {
++   value = [ for key, value
++             in google_compute_subnetwork.project-subnet
++             : "${value.name}: ${value.ip_cidr_range}" ]
++ }
++
++ #output "pod_range" {
++ #  value = [ for firewall in google_compute_firewall.project-firewall-allow-ssh : firewall ]
++ #}
++ #output "service_range" {
++ #  value = [ for firewall in google_compute_firewall.allow-db : firewall ]
++ #}
++
++ output "cloud_nat_ips" {
++   value = [ for key, value
++             in google_compute_address.project-nat-ips
++             : "${value.name}: ${value.address}"]
++ }
 
