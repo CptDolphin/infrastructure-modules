@@ -1,4 +1,4 @@
-# iam/terragrunt.hcl
+# bucket/terragrunt.hcl
 
 include {
   path = find_in_parent_folders()

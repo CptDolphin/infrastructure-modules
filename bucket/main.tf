@@ -14,6 +14,12 @@
  * limitations under the License.
  */
 
+terraform {
+  # Intentionally empty. Will be filled by Terragrunt.
+  backend "gcs" {}
+}
+
+
 resource "google_storage_bucket" "bucket" {
   name               = var.name
   project            = var.project_id
